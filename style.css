@@ -1,0 +1,352 @@
+/******************************************************************************
+START Glitch hello-app default styles
+
+The styles in this section do some minimal CSS resets, set default fonts and 
+colors, and handle the layout for our footer and "Remix on Glitch" button. If
+you're new to CSS they may seem a little complicated, but you can scroll down
+to this section's matching END comment to see page-specific styles.
+******************************************************************************/
+
+/* 
+  The style rules specify elements by type and by attributes such as class and ID
+  Each section indicates an element or elements, then lists the style properties to apply
+  See if you can cross-reference the rules in this file with the elements in index.html
+*/
+
+/* Our default values set as CSS variables */
+:root {
+  --color-bg: #69f7be;
+  --color-text-main: #000000;
+  --color-text-header: #2800ff;
+  --color-primary: #ffff00;
+  --wrapper-height: 87vh;
+  --image-max-width: 300px;
+  --image-margin: 3rem;
+  --font-family: "HK Grotesk";
+  --font-family-header: "HK Grotesk";
+}
+
+/* Basic page style resets */
+* {
+  box-sizing: border-box;
+}
+[hidden] {
+  display: none !important;
+}
+
+/* Import fonts */
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("https://cdn.glitch.global/7ecfe128-fa62-47d9-9ae8-7efbddec66fc/NamLhaiThaiWeaving-Middle_1.otf?v=1733736446145")
+    format("opentype");
+}
+@font-face {
+  font-family: "Body";
+  src: url("https://cdn.glitch.global/7ecfe128-fa62-47d9-9ae8-7efbddec66fc/Bespoke-B-gT3dwHkv.otf?v=1733429116761")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "Normal";
+  src: url("https://cdn.glitch.global/7ecfe128-fa62-47d9-9ae8-7efbddec66fc/DMMono-Light.ttf?v=1733090345998")
+    format("opentype");
+}
+
+body {
+  font-family: "Body";
+  background-color: #ffffff;
+  background-color: #f3f3f3;
+  /*   margin-top: 2rem; */
+}
+
+/* Page structure */
+.wrapper {
+  min-height: var(--wrapper-height);
+  display: flex;
+  /* place-items: center; */
+  /*   margin: 0 1rem; */
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Very light scaling for our illustration */
+.title {
+  color: var(--color-text-header);
+  font-family: HK Grotesk;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 100px;
+  line-height: 105%;
+  margin: 0;
+}
+
+/* Very light scaling for our illustration */
+.illustration {
+  max-width: 100%;
+  max-height: var(--image-max-width);
+  margin-top: var(--image-margin);
+}
+
+/* Instructions */
+.instructions {
+  margin: 1rem auto 0;
+}
+
+/* Button - Add it from the README instructions */
+button,
+input {
+  font-family: inherit;
+  background: #f3f3f3;
+  border: 1px solid #000000;
+  border: none;
+  box-sizing: border-box;
+  padding: 0.5rem 1rem;
+
+  background: white;
+
+  /*   text-decoration: underline; */
+
+  /*   transition: 500ms; */
+}
+
+/* Subheading */
+h2 {
+  color: black;
+  font-family: "Body";
+  font-size: 1.5rem;
+}
+
+p {
+  color: black;
+  font-family: "Body";
+  font-size: 0.8rem;
+}
+
+small {
+  color: black;
+  font-family: "Normal";
+  font-size: 0.75rem;
+}
+
+/* Interactive image */
+.illustration:active {
+  transform: translateY(5px);
+}
+
+.textDiv {
+  flex-basis: 80%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  margin: 0 2rem;
+}
+
+textarea {
+  height: 85vh;
+  
+  text-transform: lowercase;
+
+/*   position: sticky;
+ */
+  width: 100%;
+  font-family: "HK Grotesk";
+  
+  font-size: 5rem;
+  line-height: 3rem;
+
+  
+  font-size: 5.5vw;
+  line-height: 3.3vw;
+  
+  margin-top: 2rem;
+  transform: rotate(180deg) scaleX(-1);
+
+  background-color: #f3f3f3;
+  border: none;
+  font-variant-ligatures: common-ligatures discretionary-ligatures
+    historical-ligatures contextual;
+  font-feature-settings: "liga" 1, "dlig" 1, "hlig" 1, "calt" 1, "salt" 1;
+  /*   text-align: center; */
+  padding: 1rem;
+}
+
+img {
+  width: 100%;
+}
+
+.mainImg {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.sideBar {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  position: relative;
+  width: 25%;
+  top: 0;
+  background-color: white;
+  flex-shrink: 0;    /* Prevent flexbox from shrinking it */
+
+}
+
+.instructions-container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  gap: 2rem;
+  top: 0;
+  z-index: 1;
+/*   padding-top: 1rem; */
+}
+
+.instructions-content {
+  padding: 1rem;
+  display: block; /* Will be toggled with JavaScript */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 60%;
+  height: 20rem;
+  z-index: 1000;
+  box-shadow: 0 4px 6px (rgba(0, 0, 0, 0.5));
+  background: white;
+  /*   border: 1px solid black; */
+  margin-top: 0.5rem;
+  /*   border-radius: 4px; */
+  overflow: scroll;
+}
+
+.instructions-content.hidden {
+  display: none;
+}
+˜ .instruction-grid {
+  /*   display: flex; */
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+}
+
+.flex-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.toggle-btn {
+  width: 25%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-shrink: 0;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggle-btn:hover {
+  /*   background-color: white; */
+}
+
+button:hover {
+  /*   background-color: white; */
+  cursor: pointer;
+  color: grey;
+}
+
+.gridVert {
+  width: 50%;
+}
+
+/* with the arrows and keyboard pic */
+.rightGrid {
+  width: 70%;
+}
+
+.rightGridFull {
+  width: 100%;
+}
+
+.keyboardImg {
+  width: 100%;
+}
+
+.arrowLeft {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.separator {
+  border: 0.5px solid #f5f5f5;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.greyText {
+  font-color: grey;
+}
+
+/*  FOR THE GRID AHHHH */
+.row-container {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.primary-text {
+  font-family: HK Grotesk;
+  font-size: 2rem;
+/*   padding-bottom: 0.5rem; */
+}
+
+.text-container {
+  text-align: center;
+  width: 100%;
+}
+
+.current {
+  text-decoration: underline;
+  color: black;
+}
+
+.link:hover {
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+.fabricImg {
+  width: 50%;
+}
+
+.sidebarFilter {
+  display: flex;
+  gap: 1rem;
+}
+
+.sidebarLower {
+  width: 100%;
+}
+
+.sidebarUpper {
+  width: 100%;
+}
+
+.arrowLeft {
+  font-family: "Normal";
+}
+
+.arrow {
+  margin: 0 0.5rem;
+}
