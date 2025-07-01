@@ -29,6 +29,7 @@ to this section's matching END comment to see page-specific styles.
 /* Basic page style resets */
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 [hidden] {
   display: none !important;
@@ -117,7 +118,7 @@ input {
 h2 {
   color: black;
   font-family: "Body";
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 p {
@@ -129,7 +130,8 @@ p {
 small {
   color: black;
   font-family: "Normal";
-  font-size: 0.75rem;
+  font-size: 0.7rem;
+  line-height: 0.5rem;
 }
 
 /* Interactive image */
