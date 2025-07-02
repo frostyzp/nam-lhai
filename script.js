@@ -105,11 +105,12 @@ document.addEventListener("DOMContentLoaded", () => {
   let keyboardArrNum = 0;
   
 
+  // Keyboard images commented out - local files not available
   let keyboardArr = [
-    "https://cdn.glitch.global/7ecfe128-fa62-47d9-9ae8-7efbddec66fc/keyboard_weaving_instructions.png?v=1733456342109",
-    "https://cdn.glitch.global/7ecfe128-fa62-47d9-9ae8-7efbddec66fc/keyboard_weaving02.png?v=1733456359098",
-    "https://cdn.glitch.global/7ecfe128-fa62-47d9-9ae8-7efbddec66fc/keyboard_weaving01.png?v=1733456356895",
-    "https://cdn.glitch.global/7ecfe128-fa62-47d9-9ae8-7efbddec66fc/keyboard_weaving01-1.png?v=1733456355387"
+    // "keyboard_weaving_instructions.png",
+    // "keyboard_weaving02.png", 
+    // "keyboard_weaving01.png",
+    // "keyboard_weaving01-1.png"
   ];
   
     keyboardImg.src = keyboardArr[0];

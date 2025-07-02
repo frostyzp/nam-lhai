@@ -38,23 +38,27 @@ to this section's matching END comment to see page-specific styles.
 /* Import fonts */
 @font-face {
   font-family: "HK Grotesk";
-  src: url("https://cdn.glitch.global/7ecfe128-fa62-47d9-9ae8-7efbddec66fc/NamLhaiThaiWeaving-Middle_1.otf?v=1733736446145")
+    /* namLhaiFont.otf */
+
+  src: url("namLhai.otf")
     format("opentype");
 }
+/* Body font commented out - local file not available
 @font-face {
   font-family: "Body";
-  src: url("https://cdn.glitch.global/7ecfe128-fa62-47d9-9ae8-7efbddec66fc/Bespoke-B-gT3dwHkv.otf?v=1733429116761")
+  src: url("Bespoke-B-gT3dwHkv.otf")
     format("opentype");
 }
+*/
 
 @font-face {
   font-family: "Normal";
-  src: url("https://cdn.glitch.global/7ecfe128-fa62-47d9-9ae8-7efbddec66fc/DMMono-Light.ttf?v=1733090345998")
-    format("opentype");
+  src: url("DMMono-Light.ttf")
+    format("truetype");
 }
 
 body {
-  font-family: "Body";
+  font-family: "Normal", Arial, sans-serif; /* Using fallback since Body font not available locally */
   background-color: #ffffff;
   background-color: #f3f3f3;
   /*   margin-top: 2rem; */
@@ -117,13 +121,13 @@ input {
 /* Subheading */
 h2 {
   color: black;
-  font-family: "Body";
+  font-family: "Normal", Arial, sans-serif;
   font-size: 1.2rem;
 }
 
 p {
   color: black;
-  font-family: "Body";
+  font-family: "Normal", Arial, sans-serif;
   font-size: 0.8rem;
 }
 
