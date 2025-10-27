@@ -175,7 +175,10 @@ textarea {
   border: none;
   font-variant-ligatures: common-ligatures discretionary-ligatures
     historical-ligatures contextual;
-  font-feature-settings: "liga" 1, "dlig" 1, "hlig" 1, "calt" 1, "salt" 1;
+  /* Prioritize ligature and contextual alternates */
+  font-feature-settings: "liga" on, "dlig" on, "hlig" on, "calt" on, "salt" on;
+  /* Additional settings to ensure all ligatures work */
+  text-rendering: optimizeLegibility;
   /*   text-align: center; */
   padding: 1rem;
 }
@@ -234,7 +237,8 @@ textarea:focus {
 .instructions-content.hidden {
   display: none;
 }
-˜ .instruction-grid {
+
+.instruction-grid {
   /*   display: flex; */
   gap: 1rem;
   padding: 1rem;
@@ -257,7 +261,7 @@ textarea:focus {
 }
 
 .toggle-btn:hover {
-  /*   background-color: white; */
+  opacity: 0.8;
 }
 
 button:hover {
@@ -295,7 +299,7 @@ button:hover {
 }
 
 .greyText {
-  font-color: grey;
+  color: grey;
 }
 
 /*  FOR THE GRID AHHHH */
