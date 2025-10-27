@@ -132,7 +132,7 @@ p {
 }
 
 small {
-  color: black;
+  color: grey;
   font-family: "Normal";
   font-size: 0.7rem;
   line-height: 0.5rem;
@@ -149,6 +149,14 @@ small {
   position: sticky;
   top: 0;
   margin: 0 2rem;
+}
+
+.textDiv small {
+  font-family: "Normal", Arial, sans-serif;
+  font-size: 0.7rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #666;
 }
 
 textarea {
@@ -181,15 +189,19 @@ textarea {
   text-rendering: optimizeLegibility;
   /*   text-align: center; */
   padding: 1rem;
+  text-decoration-color: transparent;
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
 .mainImg {
   padding-top: 1rem;
   padding-bottom: 1rem;
+  max-width: 100%; /* Ensure image doesn't overflow */
+  height: auto;
 }
 
 textarea:focus {
@@ -204,7 +216,8 @@ textarea:focus {
   top: 0;
   background-color: white;
   flex-shrink: 0;    /* Prevent flexbox from shrinking it */
-
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  box-sizing: border-box;
 }
 
 .instructions-container {
@@ -305,22 +318,25 @@ button:hover {
 /*  FOR THE GRID AHHHH */
 .row-container {
   display: flex;
-  gap: 20px;
-  padding: 10px;
+  gap: 15px;
+  padding: 10px 0;
   margin: auto;
   text-align: center;
   margin-bottom: 2rem;
+  flex-wrap: wrap; /* Allow items to wrap */
+  justify-content: flex-start;
 }
 
 .primary-text {
   font-family: HK Grotesk;
-  font-size: 2rem;
+  font-size: 1.8rem;
 /*   padding-bottom: 0.5rem; */
 }
 
 .text-container {
   text-align: center;
-  width: 100%;
+  flex: 0 0 auto; /* Don't grow or shrink, just fit content */
+  min-width: 60px; /* Minimum width for content */
 }
 
 .current {
@@ -347,10 +363,14 @@ button:hover {
 
 .sidebarLower {
   width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 .sidebarUpper {
   width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 .arrowLeft {
@@ -359,4 +379,55 @@ button:hover {
 
 .arrow {
   margin: 0 0.5rem;
+}
+
+/* Mobile message styling */
+.mobile-message {
+  display: none;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .wrapper {
+    display: none;
+  }
+
+  .mobile-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 0.8rem;
+    background-color: #f3f3f3;
+    text-align: center;
+  }
+
+  .mobile-message small {
+    font-size: 0.8rem !important;
+    font-family: "Normal", Arial, sans-serif;
+    color: grey !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+  }
+
+  .mobile-message p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #000000;
+    font-family: "Normal", Arial, sans-serif;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-message small {
+    font-size: 1.2rem;
+  }
+
+  .mobile-message p {
+    font-size: 1rem;
+    padding: 1.5rem;
+  }
 }
