@@ -15,15 +15,19 @@ to this section's matching END comment to see page-specific styles.
 
 /* Our default values set as CSS variables */
 :root {
-  --color-bg: #69f7be;
-  --color-text-main: #000000;
-  --color-text-header: #2800ff;
+  --color-bg: #10141a;
+  --color-text-main: #ffffff;
+  --color-text-header: #ffffff;
   --color-primary: #ffff00;
   --wrapper-height: 87vh;
   --image-max-width: 300px;
   --image-margin: 3rem;
   --font-family: "HK Grotesk";
   --font-family-header: "HK Grotesk";
+  --sidebar-bg: #000000;
+  --fabric-blue: #87ceeb;
+  --fabric-orange: #ffb366;
+  --fabric-pink: #ffb6c1;
 }
 
 /* Basic page style resets */
@@ -59,8 +63,14 @@ to this section's matching END comment to see page-specific styles.
 
 body {
   font-family: "Normal", Arial, sans-serif; /* Using fallback since Body font not available locally */
-  background-color: #ffffff;
-  background-color: #f3f3f3;
+  background-color: var(--color-bg);
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 19px,
+    rgba(200, 200, 200, 0.1) 19px,
+    rgba(200, 200, 200, 0.1) 20px
+  );
   /*   margin-top: 2rem; */
 }
 
@@ -76,6 +86,14 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.sidebarTitleMain {
+  color: #82c9ff;
+  font-family: "Normal", Arial, sans-serif;
+  font-size: 2rem;
+  text-align: left;
+  padding: 1rem 0rem;
 }
 
 /* Very light scaling for our illustration */
@@ -105,13 +123,11 @@ body {
 button,
 input {
   font-family: inherit;
-  background: #f3f3f3;
-  border: 1px solid #000000;
+  background: #2a2a2a;
   border: none;
   box-sizing: border-box;
   padding: 0.5rem 1rem;
-
-  background: white;
+  color: #ffffff;
 
   /*   text-decoration: underline; */
 
@@ -120,19 +136,19 @@ input {
 
 /* Subheading */
 h2 {
-  color: black;
+  color: #ffffff;
   font-family: "Normal", Arial, sans-serif;
   font-size: 1.2rem;
 }
 
 p {
-  color: black;
+  color: #ffffff;
   font-family: "Normal", Arial, sans-serif;
   font-size: 0.8rem;
 }
 
 small {
-  color: grey;
+  color: #d4d4d4;
   font-family: "Normal";
   font-size: 0.7rem;
   line-height: 0.5rem;
@@ -156,7 +172,7 @@ small {
   font-size: 0.7rem;
   display: block;
   margin-bottom: 0.5rem;
-  color: #666;
+  color: #d4d4d4;
 }
 
 textarea {
@@ -179,7 +195,15 @@ textarea {
   margin-top: 2rem;
   transform: rotate(180deg) scaleX(-1);
 
-  background-color: #f3f3f3;
+  background-color: var(--color-bg);
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 19px,
+    rgba(200, 200, 200, 0.1) 19px,
+    rgba(200, 200, 200, 0.1) 20px
+  );
+  /* background: linear-gradient(180deg, #5a8bb7 0%, #4a7ba7 25%, #3a6b97 50%, #2a5d8f 75%, #1a4d7f 100%); */
   border: none;
   font-variant-ligatures: common-ligatures discretionary-ligatures
     historical-ligatures contextual;
@@ -190,11 +214,16 @@ textarea {
   /*   text-align: center; */
   padding: 1rem;
   text-decoration-color: transparent;
+  color: #ffffff;
 }
 
 img {
   max-width: 100%;
   height: auto;
+}
+
+sidebarTitle {
+  color: #ffffff;
 }
 
 .mainImg {
@@ -209,15 +238,39 @@ textarea:focus {
 }
 
 .sideBar {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 1rem 2rem;
+
   position: relative;
   width: 25%;
   top: 0;
-  background-color: white;
+  background-color: var(--color-bg);
   flex-shrink: 0;    /* Prevent flexbox from shrinking it */
   overflow-x: hidden; /* Prevent horizontal overflow */
   box-sizing: border-box;
+}
+
+.sideBar p {
+  color: #ffffff;
+}
+
+.sideBar small {
+  color: #e0e0e0;
+}
+
+.sideBar .primary-text {
+  color: #ffffff;
+}
+
+.sideBar .secondary-text {
+  color: #e0e0e0;
+}
+
+.sideBar .link {
+  color: #e0e0e0;
+}
+
+.sideBar .current {
+  color: #ffffff;
 }
 
 .instructions-container {
@@ -240,11 +293,19 @@ textarea:focus {
   height: 20rem;
   z-index: 1000;
   box-shadow: 0 4px 6px (rgba(0, 0, 0, 0.5));
-  background: white;
-  /*   border: 1px solid black; */
+  background: var(--color-bg);
+  border: 1px solid #333333;
   margin-top: 0.5rem;
   /*   border-radius: 4px; */
   overflow: scroll;
+}
+
+.instructions-content p {
+  color: #e0e0e0;
+}
+
+.instructions-content small {
+  color: #b0b0b0;
 }
 
 .instructions-content.hidden {
@@ -255,7 +316,15 @@ textarea:focus {
   /*   display: flex; */
   gap: 1rem;
   padding: 1rem;
-  background: white;
+  background: #101011;
+}
+
+.instruction-grid p {
+  color: #e0e0e0;
+}
+
+.instruction-grid small {
+  color: #b0b0b0;
 }
 
 .flex-container {
@@ -271,6 +340,9 @@ textarea:focus {
   flex-shrink: 0;
   align-items: center;
   cursor: pointer;
+  background: transparent;
+  color: #ffffff;
+  border: none;
 }
 
 .toggle-btn:hover {
@@ -280,7 +352,7 @@ textarea:focus {
 button:hover {
   /*   background-color: white; */
   cursor: pointer;
-  color: grey;
+  color: #d4d4d4;
 }
 
 .gridVert {
@@ -306,13 +378,29 @@ button:hover {
 }
 
 .separator {
-  border: 0.5px solid #f5f5f5;
   width: 100%;
   margin: 1rem 0;
+  height: 2px;
+  border: none;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #ba9c7f 0 24px,
+    transparent 24px 30px
+  );
+}
+
+.sideBar .separator {
+  height: 2px;
+  border: none;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #333333 0 24px,
+    transparent 24px 30px
+  );
 }
 
 .greyText {
-  color: grey;
+  color: #d4d4d4;
 }
 
 /*  FOR THE GRID AHHHH */
@@ -341,7 +429,7 @@ button:hover {
 
 .current {
   text-decoration: underline;
-  color: black;
+  color: #ffffff;
 }
 
 .link:hover {
@@ -354,6 +442,9 @@ button:hover {
 
 .fabricImg {
   width: 50%;
+  max-width: 80px;
+  height: auto;
+  object-fit: contain;
 }
 
 .sidebarFilter {
@@ -399,14 +490,14 @@ button:hover {
     justify-content: center;
     height: 100vh;
     padding: 0.8rem;
-    background-color: #f3f3f3;
+    background-color: var(--color-bg);
     text-align: center;
   }
 
   .mobile-message small {
     font-size: 0.8rem !important;
     font-family: "Normal", Arial, sans-serif;
-    color: grey !important;
+    color: #d4d4d4 !important;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     display: block;
@@ -415,7 +506,7 @@ button:hover {
   .mobile-message p {
     font-size: 1.2rem;
     line-height: 1.6;
-    color: #000000;
+    color: #ffffff;
     font-family: "Normal", Arial, sans-serif;
     max-width: 500px;
   }
