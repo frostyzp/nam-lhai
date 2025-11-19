@@ -13,6 +13,8 @@ to this section's matching END comment to see page-specific styles.
   See if you can cross-reference the rules in this file with the elements in index.html
 */
 
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;600&family=Noto+Serif:wght@400;600&display=swap");
+
 /* Our default values set as CSS variables */
 :root {
   --color-bg: #10141a;
@@ -47,6 +49,18 @@ to this section's matching END comment to see page-specific styles.
   src: url("namLhai.otf")
     format("opentype");
 }
+
+@font-face {
+  font-family: "SOV Thai";
+  src: url("SOV_sorm2496.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Bespoke";
+  src: url("bespoke.otf")
+    format("opentype");
+}
 /* Body font commented out - local file not available
 @font-face {
   font-family: "Body";
@@ -55,14 +69,15 @@ to this section's matching END comment to see page-specific styles.
 }
 */
 
-@font-face {
-  font-family: "Normal";
+/* Normal font changed from monospace to serif */
+/* @font-face {
+  font-family: "Bespoke", Georgia, serif;
   src: url("DMMono-Light.ttf")
     format("truetype");
-}
+} */
 
 body {
-  font-family: "Normal", Arial, sans-serif; /* Using fallback since Body font not available locally */
+  font-family: "Bespoke", Georgia, serif; /* Changed from monospace to serif */
   background-color: var(--color-bg);
   background-image: repeating-linear-gradient(
     90deg,
@@ -90,11 +105,31 @@ body {
 
 .sidebarTitleMain {
   color: #82c9ff;
-  font-family: "Normal", Arial, sans-serif;
-  font-size: 2rem;
-  text-align: left;
-  padding: 1rem 0rem;
+  font-family: "SOV Thai", "Noto Serif", Georgia, serif;
+  font-size: 4rem;
+  line-height: 1;
+  margin: 0;
+  /* text-align: left;
+  padding: 1rem 0 1rem 0.5rem; */
 }
+
+.sidebarTitleMain + .sidebarTitleMain {
+  margin-top: -0.5rem;
+}
+
+.sidebarTitleMain.subheader {
+  font-family: "Bespoke", Georgia, serif;
+  /* color: #389fed; */
+  color: #82c9ff;
+  font-size: 1rem;
+  line-height: 1;
+  display: block;
+  margin-top: 0.5rem;
+  /* text-align: left;
+  padding: 1rem 0 1rem 0.5rem; */
+}
+
+
 
 /* Very light scaling for our illustration */
 .title {
@@ -137,19 +172,20 @@ input {
 /* Subheading */
 h2 {
   color: #ffffff;
-  font-family: "Normal", Arial, sans-serif;
+  font-family: "Bespoke", Georgia, serif;
   font-size: 1.2rem;
 }
 
 p {
   color: #ffffff;
-  font-family: "Normal", Arial, sans-serif;
+  font-family: "Bespoke", Georgia, serif;
   font-size: 0.8rem;
+  line-height: 1.2rem;
 }
 
 small {
   color: #d4d4d4;
-  font-family: "Normal";
+  font-family: "Bespoke", Georgia, serif;
   font-size: 0.7rem;
   line-height: 0.5rem;
 }
@@ -168,7 +204,7 @@ small {
 }
 
 .textDiv small {
-  font-family: "Normal", Arial, sans-serif;
+  font-family: "Bespoke", Georgia, serif;
   font-size: 0.7rem;
   display: block;
   margin-bottom: 0.5rem;
@@ -239,7 +275,8 @@ textarea:focus {
 
 .sideBar {
   padding: 1rem 2rem;
-
+  display: flex;
+  flex-direction: column;
   position: relative;
   width: 25%;
   top: 0;
@@ -251,6 +288,7 @@ textarea:focus {
 
 .sideBar p {
   color: #ffffff;
+  line-height: 1.2rem;
 }
 
 .sideBar small {
@@ -316,7 +354,7 @@ textarea:focus {
   /*   display: flex; */
   gap: 1rem;
   padding: 1rem;
-  background: #101011;
+  background: var(--color-bg);
 }
 
 .instruction-grid p {
@@ -325,6 +363,11 @@ textarea:focus {
 
 .instruction-grid small {
   color: #b0b0b0;
+  line-height: 1.2rem;
+}
+
+.instruction-grid .separator {
+  display: none;
 }
 
 .flex-container {
@@ -333,7 +376,7 @@ textarea:focus {
 }
 
 .toggle-btn {
-  width: 25%;
+  width: 10%;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -357,6 +400,7 @@ button:hover {
 
 .gridVert {
   width: 50%;
+  gap: 1rem;
 }
 
 /* with the arrows and keyboard pic */
@@ -384,8 +428,8 @@ button:hover {
   border: none;
   background-image: repeating-linear-gradient(
     90deg,
-    #ba9c7f 0 24px,
-    transparent 24px 30px
+    #ba9c7f 0 12px,
+    transparent 12px 18px
   );
 }
 
@@ -394,8 +438,8 @@ button:hover {
   border: none;
   background-image: repeating-linear-gradient(
     90deg,
-    #333333 0 24px,
-    transparent 24px 30px
+    #333333 0 12px,
+    transparent 12px 18px
   );
 }
 
@@ -464,12 +508,24 @@ button:hover {
   overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
+.sidebarFooter {
+  margin-top: auto;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.sidebarFooter small {
+  color: #b0b0b0;
+  font-family: "Bespoke", Georgia, serif;
+  font-size: 0.7rem;
+}
+
 .arrowLeft {
-  font-family: "Normal";
+  font-family: "Bespoke", Georgia, serif;
 }
 
 .arrow {
-  margin: 0 0.5rem;
+  margin: 0 0.2rem;
 }
 
 /* Mobile message styling */
@@ -496,7 +552,7 @@ button:hover {
 
   .mobile-message small {
     font-size: 0.8rem !important;
-    font-family: "Normal", Arial, sans-serif;
+    font-family: "Bespoke", Georgia, serif;
     color: #d4d4d4 !important;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -507,7 +563,7 @@ button:hover {
     font-size: 1.2rem;
     line-height: 1.6;
     color: #ffffff;
-    font-family: "Normal", Arial, sans-serif;
+    font-family: "Bespoke", Georgia, serif;
     max-width: 500px;
   }
 }
